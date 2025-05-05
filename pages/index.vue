@@ -18,7 +18,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 button {
   margin: 10px;
   padding: 10px;

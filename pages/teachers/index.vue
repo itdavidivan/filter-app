@@ -1,3 +1,9 @@
+<script lang="ts" setup>
+definePageMeta({
+  middleware: "auth", // Aplikovanie middleware 'auth' na túto stránku
+});
+</script>
+
 <template>
   <div class="teacher-list">
     <h1 class="page-title">List of Teachers</h1>
@@ -7,7 +13,7 @@
       <select
         id="skills-select"
         class="form-control"
-        v-model="useStore.selectedTeachers"
+        v-model="selectedTeachers"
       >
         <option value="">All Skills</option>
         <option value="Frontend">Frontend</option>
@@ -19,7 +25,7 @@
     <ul class="teacher-list-items">
       <li
         class="teacher-item"
-        v-for="teacher in useStore.filteredTeachers"
+        v-for="teacher in filteredTeachers"
         :key="teacher.id"
       >
         <NuxtLink :to="`/teachers/${teacher.id}`" class="teacher-link">
@@ -33,10 +39,25 @@
 
 <script lang="ts">
 import { useStore } from "@/stores/counter";
+
 export default {
+  data() {
+    return {
+      selectedTeachers: "", // Premenná pre filtrovanie podľa zručností
+    };
+  },
   computed: {
     useStore() {
       return useStore();
+    },
+    filteredTeachers() {
+      // Filtrovanie učiteľov podľa vybraných zručností
+      if (this.selectedTeachers) {
+        return this.useStore.teachers.filter((teacher) =>
+          teacher.skills.includes(this.selectedTeachers)
+        );
+      }
+      return this.useStore.teachers;
     },
   },
 };

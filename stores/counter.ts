@@ -7,6 +7,7 @@ export const useStore = defineStore("counter", {
       { id: 3, name: "Alice Johnson", skills: ["Frontend", "Backend"] },
     ],
     selectedTeachers: "",
+    isAuthenticated: false,
   }),
   actions: {
     increment() {
