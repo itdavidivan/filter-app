@@ -19,7 +19,9 @@ export const useStore = defineStore("counter", {
   },
   getters: {
     doubleCount: (state) => state.counter * 2,
-
+    reset(state) {
+      state.counter = 0;
+    },
     filteredTeachers(state) {
       if (!state.selectedTeachers) {
         return state.teachers;

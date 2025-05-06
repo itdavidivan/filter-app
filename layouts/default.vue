@@ -3,6 +3,7 @@
     <header class="header">
       <NuxtLink to="/" class="nav-link logo">Home</NuxtLink>
       <div class="nav-links">
+        <NuxtLink to="/counter" class="nav-link">Counter</NuxtLink>
         <NuxtLink
           v-if="useStore.isAuthenticated"
           to="/teachers"

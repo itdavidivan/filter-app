@@ -1,35 +1,53 @@
+/************* ✨ Windsurf Command ⭐ *************/
 <template>
-  <div>
-    <h1>Hello World</h1>
-    <h2>count: {{ useStore.counter }}</h2>
-    <h2>doubleCount: {{ useStore.doubleCount }}</h2>
-    <button @click="useStore.increment">+</button>
-    <button @click="useStore.decrement">-</button>
+  <div class="home">
+    <div class="hero is-fullheight is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-1">Welcome to our website</h1>
+          <h2 class="subtitle is-3">
+            This is a simple website with a few pages.
+          </h2>
+          <p>
+            You can navigate to the different pages using the links in the
+            navigation bar above.
+          </p>
+          <p>
+            This website is built using Nuxt.js, a framework for building
+            server-rendered, statically generated, and performance optimized web
+            applications.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { useStore } from "../stores/counter";
-export default {
-  computed: {
-    useStore() {
-      return useStore();
-    },
-  },
-};
-</script>
 <style scoped>
-button {
-  margin: 10px;
-  padding: 10px;
-  border: 2px solid #000;
-  box-shadow: 1px 1px 2px #000;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.home {
+  background-color: #f5f7fa;
 }
-button:hover {
-  background-color: #000;
-  color: #fff;
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+}
+
+.hero-body {
+  padding: 3rem 1.5rem;
+}
+
+.title {
+  font-weight: 700;
+  color: white;
+}
+
+.subtitle {
+  font-weight: 400;
+  color: white;
+}
+
+p {
+  color: white;
 }
 </style>
+/******* 94069edf-2c82-49a2-bb43-e9638e0d9920 *******/
